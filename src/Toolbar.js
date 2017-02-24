@@ -127,10 +127,12 @@ function Toolbar(calendar, toolbarOptions) {
 								innerHtml = htmlEscape(overrideText);
 							}
 							else if (themeIcon && calendar.options.theme) {
-								innerHtml = "<span class='ui-icon ui-icon-" + themeIcon + "'></span>";
+                innerHtml = "<span aria-hidden='true' class='ui-icon ui-icon-" +
+                  themeIcon + "'></span>";
 							}
 							else if (normalIcon && !calendar.options.theme) {
-								innerHtml = "<span class='fc-icon fc-icon-" + normalIcon + "'></span>";
+                innerHtml = "<span aria-hidden='true' class='fc-icon fc-icon-" +
+                  normalIcon + "'></span>";
 							}
 							else {
 								innerHtml = htmlEscape(defaultText);
