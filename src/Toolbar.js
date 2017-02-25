@@ -82,7 +82,7 @@ function Toolbar(calendar, toolbarOptions) {
 					var button; // the element
 
 					if (buttonName == 'title') {
-						groupChildren = groupChildren.add($('<h2>&nbsp;</h2>')); // we always want it to take up height
+						groupChildren = groupChildren.add($('<h2 aria-hidden="true">&nbsp;</h2>')); // we always want it to take up height
 						isOnlyButtons = false;
 					}
 					else {
@@ -127,12 +127,10 @@ function Toolbar(calendar, toolbarOptions) {
 								innerHtml = htmlEscape(overrideText);
 							}
 							else if (themeIcon && calendar.options.theme) {
-                innerHtml = "<span aria-hidden='true' class='ui-icon ui-icon-" +
-                  themeIcon + "'>" + themeIcon + "</span>";
+                innerHtml = "<span class='ui-icon ui-icon-" + themeIcon + "'></span>";
 							}
 							else if (normalIcon && !calendar.options.theme) {
-                innerHtml = "<span aria-hidden='true' class='fc-icon fc-icon-" +
-                  normalIcon + "'>" + normalIcon + "</span>";
+                innerHtml = "<span class='fc-icon fc-icon-" + normalIcon + "'></span>";
 							}
 							else {
 								innerHtml = htmlEscape(defaultText);
@@ -145,8 +143,9 @@ function Toolbar(calendar, toolbarOptions) {
 							];
 
 							button = $( // type="button" so that it doesn't submit a form
-								'<button type="button" class="' + classes.join(' ') + '">' +
-									innerHtml +
+                '<button type="button" aria-label="' + buttonName + '" class="' +
+                classes.join(' ') + '">' +
+								innerHtml +
 								'</button>'
 								)
 								.click(function(ev) {
