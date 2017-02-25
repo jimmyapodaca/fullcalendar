@@ -128,11 +128,11 @@ function Toolbar(calendar, toolbarOptions) {
 							}
 							else if (themeIcon && calendar.options.theme) {
                 innerHtml = "<span aria-hidden='true' class='ui-icon ui-icon-" +
-                  themeIcon + "'></span>";
+                  themeIcon + "'>" + themeIcon + "</span>";
 							}
 							else if (normalIcon && !calendar.options.theme) {
                 innerHtml = "<span aria-hidden='true' class='fc-icon fc-icon-" +
-                  normalIcon + "'></span>";
+                  normalIcon + "'>" + normalIcon + "</span>";
 							}
 							else {
 								innerHtml = htmlEscape(defaultText);
